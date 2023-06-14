@@ -33,5 +33,7 @@ public class Repetitivas {
 			System.out.print(i + " ");
 			i++;
 		}
+		
+		sc.close();
 	}
 }

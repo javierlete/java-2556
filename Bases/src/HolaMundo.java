@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class HolaMundo {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		System.out.println("Hola");
 
@@ -16,6 +17,7 @@ public class HolaMundo {
 
 		System.out.println(d);
 		System.out.println(e);
+		System.out.println(f);
 
 		long l = 8123123123123123123l;
 
@@ -46,5 +48,7 @@ public class HolaMundo {
 		int suma = a + b;
 
 		System.out.println("a + b = " + suma);
+		
+		sc.close();
 	}
 }

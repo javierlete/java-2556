@@ -31,5 +31,7 @@ public class Condicionales {
 		}
 
 		System.out.println("Hasta la próxima");
+		
+		sc.close();
 	}
 }
