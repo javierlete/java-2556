@@ -1,53 +1,30 @@
+import static com.ipartek.formacion.bibliotecas.Consola.*;
+
 import java.util.Date;
-import java.util.Scanner;
 
 public class Conversiones {
 	public static void main(String[] args) {
-		String numeroTexto = "123";
+		int numero = leerEntero("Dime un número");
 
-		System.out.println(numeroTexto + 4);
-
-		int numero = Integer.parseInt(numeroTexto);
-
-		System.out.println(numero + 4);
-
-		Scanner sc = new Scanner(System.in);
-
-		System.out.print("¿Te gusta? ");
-
-		String boolTexto = sc.nextLine();
+		mostrarLinea(numero + 4);
 		
-		System.out.println(boolTexto);
+		mostrarLinea(leerEntero("Dime un número") + 4);
 		
-		String boolTextoSinEspacios = boolTexto.trim();
-		
-		System.out.println(boolTextoSinEspacios);
-		
-		String boolTextoMinusculas = boolTextoSinEspacios.toLowerCase();
-		
-		System.out.println(boolTextoMinusculas);
-		
-		char boolPrimeraLetra = boolTextoMinusculas.charAt(0);
+		boolean bool = leerBooleano("¿Te gusta?");
 
-		System.out.println(boolPrimeraLetra);
-		
-		boolean bool = boolPrimeraLetra == 's'; // "s".equalsIgnoreCase(boolPrimeraLetra);
-
-		System.out.println(bool);
-
-		sc.close();
+		mostrarLinea(bool);
 		
 		String boolOtroTexto = String.valueOf(bool);
 		
-		System.out.println(boolOtroTexto);
+		mostrarLinea(boolOtroTexto);
 		
 		Date fecha = new Date();
 		String fechaTexto = fecha.toString();
 		
-		System.out.println(fechaTexto);
+		mostrarLinea(fechaTexto);
 		
 		fechaTexto = String.valueOf(fecha);
 		
-		System.out.println(fechaTexto);
+		mostrarLinea(fechaTexto);
 	}
 }
