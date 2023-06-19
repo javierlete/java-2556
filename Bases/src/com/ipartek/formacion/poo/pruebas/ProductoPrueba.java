@@ -20,6 +20,15 @@ public class ProductoPrueba {
 
 		mostrarProducto(manzana);
 
+		Producto manzana2 = new Producto(manzana);
+		
+		manzana2.setNombre("Manzana2");
+		
+		mostrarLinea(manzana);
+		mostrarLinea(manzana2);
+		
+		//System.exit(0);
+		
 		Producto naranja = new Producto(1L, "Naranja", new BigDecimal("2.13"), LocalDate.of(2024, 12, 12));
 
 		mostrarProducto(naranja);

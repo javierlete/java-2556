@@ -22,6 +22,16 @@ public class Producto {
 		this.caducidad = caducidad;
 	}
 	
+	// Constructor de copia
+	public Producto(Producto producto) {
+		this(producto.getId(), producto.getNombre(), producto.getPrecio(), producto.getCaducidad());
+
+//		this.id = producto.getId();
+//		this.nombre = producto.getNombre();
+//		this.precio = producto.getPrecio();
+//		this.caducidad = producto.getCaducidad();
+	}
+	
 	public Producto(Long id, String nombre, LocalDate caducidad) {
 		this(id, nombre, PRECIO_POR_DEFECTO, caducidad);
 	}
