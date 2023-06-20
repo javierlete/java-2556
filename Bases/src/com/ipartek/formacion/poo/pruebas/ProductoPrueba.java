@@ -14,9 +14,9 @@ public class ProductoPrueba {
 		Producto manzana = new Producto();
 
 		manzana.setId(5L);
-		manzana.setNombre("Manzana");
+		manzana.setNombre("    Naranja  ");
 		manzana.setPrecio(new BigDecimal("1.23"));
-		manzana.setCaducidad(LocalDate.of(2024, 1, 2));
+		manzana.setCaducidad(LocalDate.of(2025, 1, 2));
 
 		mostrarProducto(manzana);
 

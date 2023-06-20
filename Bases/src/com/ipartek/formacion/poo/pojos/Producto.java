@@ -16,10 +16,10 @@ public class Producto {
 	
 	// Constructores (de instancia)
 	public Producto(Long id, String nombre, BigDecimal precio, LocalDate caducidad) {
-		this.id = id;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.caducidad = caducidad;
+		setId(id);
+		setNombre(nombre);
+		setPrecio(precio);
+		setCaducidad(caducidad);
 	}
 	
 	// Constructor de copia
@@ -53,24 +53,37 @@ public class Producto {
 		return id;
 	}
 	public void setId(Long id) {
+		if(id != null && id < 0) {
+			throw new RuntimeException("No se admiten valores negativos para el id");
+		}
+		
 		this.id = id;
 	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		if(nombre == null || nombre.trim().length() == 0) {
+			throw new RuntimeException("No se admiten nombres sin rellenar");
+		}
+		this.nombre = nombre.trim();
 	}
 	public BigDecimal getPrecio() {
 		return precio;
 	}
 	public void setPrecio(BigDecimal precio) {
+		if(precio == null || precio.compareTo(BigDecimal.ZERO) < 0) {
+			throw new RuntimeException("El precio es obligatorio y debe ser positivo");
+		}
 		this.precio = precio;
 	}
 	public LocalDate getCaducidad() {
 		return caducidad;
 	}
 	public void setCaducidad(LocalDate caducidad) {
+		if(caducidad != null && caducidad.compareTo(LocalDate.now()) <= 0) {
+			throw new RuntimeException("La caducidad debe ser en el futuro");
+		}
 		this.caducidad = caducidad;
 	}
 	
@@ -84,7 +97,15 @@ public class Producto {
 		LocalDate caducidad1 = p1.getCaducidad();
 		LocalDate caducidad2 = p2.getCaducidad();
 		
-		LocalDate caducidad = caducidad1.compareTo(caducidad2) < 0 ? caducidad1 : caducidad2;
+		LocalDate caducidad;
+		
+		if(caducidad1 == null) {
+			caducidad = caducidad2;
+		} else if(caducidad2 == null) {
+			caducidad = caducidad1;
+		} else {
+			caducidad = caducidad1.compareTo(caducidad2) < 0 ? caducidad1 : caducidad2;
+		}
 		
 		producto.setCaducidad(caducidad);
 		
