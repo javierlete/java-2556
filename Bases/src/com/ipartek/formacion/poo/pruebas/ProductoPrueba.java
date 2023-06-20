@@ -45,6 +45,10 @@ public class ProductoPrueba {
 
 		mostrarLinea(pack2);
 
+		ejemploAlmacen();
+	}
+
+	private static void ejemploAlmacen() {
 		ArrayList<Producto> almacen = new ArrayList<>();
 
 //		almacen.add(manzana);
@@ -73,19 +77,69 @@ public class ProductoPrueba {
 	private static Producto pedirProducto() {
 		Producto p = new Producto();
 
-		Long id = leerLong("Id");
-		p.setId(id);
-
-		String nombre = leerLinea("Nombre");
-		p.setNombre(nombre);
-
-		BigDecimal precio = leerBigDecimal("Precio");
-		p.setPrecio(precio);
-
-		LocalDate caducidad = leerLocalDate("Caducidad");
-		p.setCaducidad(caducidad);
+		pedirId(p);
+		pedirNombre(p);
+		pedirPrecio(p);
+		pedirCaducidad(p);
 
 		return p;
+	}
+
+	private static void pedirId(Producto p) {
+		boolean equivocado = true;
+		
+		do {
+			Long id = leerLong("Id");
+			
+			try {
+				p.setId(id);
+				equivocado = false;
+			} catch (Exception e) {
+				mostrarLineaError(e.getMessage());
+			}
+		} while (equivocado);
+	}
+
+	private static void pedirNombre(Producto p) {
+		boolean equivocado = true;
+		
+		do {
+			String nombre = leerLinea("Nombre");
+			try {
+				p.setNombre(nombre);
+				equivocado = false;
+			} catch (Exception e) {
+				mostrarLineaError(e.getMessage());
+			}
+		} while (equivocado);
+	}
+
+	private static void pedirPrecio(Producto p) {
+		boolean equivocado = true;
+		
+		do {
+			BigDecimal precio = leerBigDecimal("Precio");
+			try {
+				p.setPrecio(precio);
+				equivocado = false;
+			} catch (Exception e) {
+				mostrarLineaError(e.getMessage());
+			}
+		} while (equivocado);
+	}
+
+	private static void pedirCaducidad(Producto p) {
+		boolean equivocado = true;
+		
+		do {
+			LocalDate caducidad = leerLocalDate("Caducidad");
+			try {
+				p.setCaducidad(caducidad);
+				equivocado = false;
+			} catch (Exception e) {
+				mostrarLineaError(e.getMessage());
+			}
+		} while (equivocado);
 	}
 
 	private static void mostrarProducto(Producto p) {
