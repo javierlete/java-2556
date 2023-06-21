@@ -1,6 +1,7 @@
 package com.ipartek.formacion.poo.pojos;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Almacen {
 	// Variables de instancia
@@ -80,6 +81,24 @@ public class Almacen {
 		return (ArrayList<Producto>) productos.clone();
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, latitud, longitud, nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Almacen other = (Almacen) obj;
+		return Objects.equals(id, other.id) && Objects.equals(latitud, other.latitud)
+				&& Objects.equals(longitud, other.longitud) && Objects.equals(nombre, other.nombre);
+	}
+
 	// toString
 	@Override
 	public String toString() {

@@ -2,6 +2,7 @@ package com.ipartek.formacion.poo.pojos;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Producto {
 	// Constante estática ("de clase")
@@ -126,6 +127,24 @@ public class Producto {
 	
 	public Producto paqueteDosPorUno(Producto producto) {
 		return paqueteDosPorUno(this, producto);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(caducidad, id, nombre, precio);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		return Objects.equals(caducidad, other.caducidad) && Objects.equals(id, other.id)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(precio, other.precio);
 	}
 
 	@Override
