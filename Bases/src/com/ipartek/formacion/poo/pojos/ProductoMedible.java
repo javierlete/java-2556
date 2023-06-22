@@ -18,7 +18,7 @@ public class ProductoMedible extends Producto {
 		setProfundidad(profundidad);
 	}
 	public ProductoMedible() {
-		super();
+		this(null, NOMBRE_POR_DEFECTO, PRECIO_POR_DEFECTO, null, null, null, null);
 	}
 	public ProductoMedible(Long id, String nombre, BigDecimal precio, LocalDate caducidad) {
 		this(id, nombre, precio, caducidad, null, null, null);
