@@ -56,8 +56,18 @@ public class Calculadora {
 			boton = new JButton(numero);
 			pNumeros.add(boton);
 			
+			// Java8
 			boton.addActionListener(
 					e -> eventoAPantalla(e));
+			
+			// Java < 8
+//			boton.addActionListener(new ActionListener() {
+//				
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					eventoAPantalla(e);
+//				}
+//			});
 		}
 		
 //		for(int num = 0; num <= 9; num++) {
