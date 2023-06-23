@@ -15,6 +15,9 @@ import javax.swing.SwingConstants;
 
 public class Calculadora {
 
+	private static final String CERO = "0";
+	private static final String ERROR = "****ERROR****";
+	
 	private JFrame frame;
 	private JTextField tfDisplay;
 	private JPanel pNumeros;
@@ -45,7 +48,7 @@ public class Calculadora {
 	public Calculadora() {
 		initialize();
 		
-		String[] numeros = { "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "E" };
+		String[] numeros = { "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ",", "E" };
 		
 		JButton boton;
 		
@@ -68,7 +71,17 @@ public class Calculadora {
 	}
 
 	private void digitoAPantalla(String digito) {
-		tfDisplay.setText(tfDisplay.getText() + digito);
+		String texto = tfDisplay.getText();
+		
+		if(ERROR.equals(texto)) {
+			texto = "";
+		}
+		
+		if(CERO.equals(texto) && !",".equals(digito)) {
+			texto = "";
+		}
+		
+		escribirPantalla(texto + digito);
 	}
 
 	private String extraerNumeroDeBoton(JButton boton) {
@@ -175,7 +188,7 @@ public class Calculadora {
 		JButton btnAc = new JButton("AC");
 		btnAc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tfDisplay.setText("0");
+				escribirPantalla(CERO);
 			}
 		});
 		pOperaciones2.add(btnAc);
@@ -210,15 +223,33 @@ public class Calculadora {
 	}
 	
 	private double leerPantalla() {
-		return Double.parseDouble(tfDisplay.getText());
+		String texto = tfDisplay.getText();
+		String textoConPuntos = texto.replace(",", ".");
+		try {
+			return Double.parseDouble(textoConPuntos);
+		} catch (NumberFormatException e) {
+			escribirPantalla(ERROR);
+			throw e;
+		}
 	}
 
 	private void escribirPantalla(double dato) {
-		tfDisplay.setText(String.valueOf(dato));
+		String texto = String.valueOf(dato);
+		String textoConComas = texto.replace(".", ",");
+		
+		if(textoConComas.endsWith(",0")) {
+			textoConComas = textoConComas.replace(",0", "");
+		}
+		
+		escribirPantalla(textoConComas);
+	}
+
+	private void escribirPantalla(String texto) {
+		tfDisplay.setText(texto);
 	}
 
 	private void limpiarPantalla() {
-		tfDisplay.setText("");
+		escribirPantalla("0");
 	}
 
 }
