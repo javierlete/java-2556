@@ -22,7 +22,6 @@ public class Calculadora {
 	private double op1;
 	private String op;
 	private double op2;
-	private double res;
 
 	/**
 	 * Launch the application.
@@ -55,13 +54,29 @@ public class Calculadora {
 			pNumeros.add(boton);
 			
 			boton.addActionListener(
-					e -> tfDisplay.setText(tfDisplay.getText() + ((JButton) e.getSource()).getText()));
+					e -> eventoAPantalla(e));
 		}
 		
 //		for(int num = 0; num <= 9; num++) {
 //			boton = new JButton(String.valueOf(num));
 //			pNumeros.add(boton);
 //		}
+	}
+
+	private void eventoAPantalla(ActionEvent e) {
+		digitoAPantalla(extraerNumeroDeBoton(extraerBotonDeEvento(e)));
+	}
+
+	private void digitoAPantalla(String digito) {
+		tfDisplay.setText(tfDisplay.getText() + digito);
+	}
+
+	private String extraerNumeroDeBoton(JButton boton) {
+		return boton.getText();
+	}
+
+	private JButton extraerBotonDeEvento(ActionEvent e) {
+		return (JButton) e.getSource();
 	}
 
 	/**
@@ -85,9 +100,9 @@ public class Calculadora {
 		JButton btnSumar = new JButton("+");
 		btnSumar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				op1 = Double.parseDouble(tfDisplay.getText());
+				op1 = leerPantalla();
 				op = "+";
-				tfDisplay.setText("");
+				limpiarPantalla();
 			}
 		});
 		pOperaciones.add(btnSumar);
@@ -95,9 +110,9 @@ public class Calculadora {
 		JButton btnRestar = new JButton("-");
 		btnRestar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				op1 = Double.parseDouble(tfDisplay.getText());
+				op1 = leerPantalla();
 				op = "-";
-				tfDisplay.setText("");
+				limpiarPantalla();
 			}
 		});
 		pOperaciones.add(btnRestar);
@@ -105,9 +120,9 @@ public class Calculadora {
 		JButton btnMultiplicar = new JButton("X");
 		btnMultiplicar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				op1 = Double.parseDouble(tfDisplay.getText());
+				op1 = leerPantalla();
 				op = "*";
-				tfDisplay.setText("");
+				limpiarPantalla();
 			}
 		});
 		pOperaciones.add(btnMultiplicar);
@@ -115,9 +130,9 @@ public class Calculadora {
 		JButton btnDividir = new JButton("/");
 		btnDividir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				op1 = Double.parseDouble(tfDisplay.getText());
+				op1 = leerPantalla();
 				op = "/";
-				tfDisplay.setText("");
+				limpiarPantalla();
 			}
 		});
 		pOperaciones.add(btnDividir);
@@ -125,7 +140,9 @@ public class Calculadora {
 		JButton btnIgual = new JButton("=");
 		btnIgual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				op2 = Double.parseDouble(tfDisplay.getText());
+				double res = 0.0;
+				
+				op2 = leerPantalla();
 				
 				switch(op) {
 				case "+":
@@ -142,7 +159,7 @@ public class Calculadora {
 					break;
 				}
 				
-				tfDisplay.setText(String.valueOf(res));
+				escribirPantalla(res);
 			}
 		});
 		pOperaciones.add(btnIgual);
@@ -166,13 +183,11 @@ public class Calculadora {
 		JButton btnMasMenos = new JButton("+/-");
 		btnMasMenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String texto = tfDisplay.getText();
-				double num = Double.parseDouble(texto);
+				double num = leerPantalla();
 				
 				num *= -1;
 				
-				texto = String.valueOf(num);
-				tfDisplay.setText(texto);
+				escribirPantalla(num);
 			}
 		});
 		pOperaciones2.add(btnMasMenos);
@@ -180,13 +195,11 @@ public class Calculadora {
 		JButton btnPorcentaje = new JButton("%");
 		btnPorcentaje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String texto = tfDisplay.getText();
-				double num = Double.parseDouble(texto);
+				double num = leerPantalla();
 				
 				num /= 100;
 				
-				texto = String.valueOf(num);
-				tfDisplay.setText(texto);
+				escribirPantalla(num);
 			}
 		});
 		pOperaciones2.add(btnPorcentaje);
@@ -194,6 +207,18 @@ public class Calculadora {
 		pNumeros = new JPanel();
 		pCentral.add(pNumeros, BorderLayout.CENTER);
 		pNumeros.setLayout(new GridLayout(4, 3, 0, 0));
+	}
+	
+	private double leerPantalla() {
+		return Double.parseDouble(tfDisplay.getText());
+	}
+
+	private void escribirPantalla(double dato) {
+		tfDisplay.setText(String.valueOf(dato));
+	}
+
+	private void limpiarPantalla() {
+		tfDisplay.setText("");
 	}
 
 }
