@@ -46,7 +46,7 @@ public class Calculadora {
 	public Calculadora() {
 		initialize();
 		
-		String[] numeros = { "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ",", "E" };
+		String[] numeros = { "7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "E" };
 		
 		JButton boton;
 		
