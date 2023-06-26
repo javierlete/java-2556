@@ -24,6 +24,8 @@ import com.ipartek.formacion.poo.pojos.Producto;
 
 public class FormularioProductos {
 
+	// https://chuidiang.org/index.php?title=JTable
+	
 	private Almacen almacen = new Almacen(1L, "Bilbao", 42.0, 2.0);
 	private DefaultTableModel modelo;
 
