@@ -9,9 +9,9 @@ public class Almacen {
 	private String nombre;
 	private Double latitud;
 	private Double longitud;
-	
-	private ArrayList<Producto> productos = new ArrayList<>();	
-	
+
+	private ArrayList<Producto> productos = new ArrayList<>();
+
 	// Constructores
 	public Almacen(Long id, String nombre, Double latitud, Double longitud) {
 		setId(id);
@@ -55,32 +55,55 @@ public class Almacen {
 
 	// Métodos específicos
 	public void meter(Producto producto) {
-		if(producto == null) {
+		if (producto == null) {
 			throw new RuntimeException("No se admiten productos nulos");
 		}
-		
+
 		productos.add(producto);
 	}
+
+	public Producto cambiar(Producto producto) {
+
+		for (int i = 0; i < productos.size(); i++) {
+			if (productos.get(i).getId() == producto.getId()) {
+				productos.set(i, producto);
+				return producto;
+			}
+		}
+
+		return null;
+	}
+	
 	
 	public Producto sacar(Long id) {
 		Producto producto = null;
-		
-		for(int i = 0; i < productos.size(); i++) {
-			if(productos.get(i).getId() == id) {
+
+		for (int i = 0; i < productos.size(); i++) {
+			if (productos.get(i).getId() == id) {
 				producto = productos.get(i);
 				productos.remove(i);
 				return producto;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public ArrayList<Producto> listado() {
 		return (ArrayList<Producto>) productos.clone();
 	}
-	
+
+	public Producto verPorId(Long id) {
+		for (Producto producto: productos) {
+			if (producto.getId() == id) {
+				return producto;
+			}
+		}
+
+		return null;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, latitud, longitud, nombre);
