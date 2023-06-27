@@ -12,6 +12,7 @@ public class EjemploJDBC {
 	public static void main(String[] args) throws SQLException {
 		final String URL = "jdbc:sqlite:sql/bases.db";
 		
+		// https://www.w3schools.com/sql/
 		final String SQL_SELECT = "SELECT * FROM productos";
 		final String SQL_SELECT_ID = "SELECT * FROM productos WHERE id=?";
 		final String SQL_INSERT = "INSERT INTO productos (nombre, precio, caducidad) VALUES (?,?,?)";
