@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de HTML</title>
+</head>
+
+<body>
+    <!-- nav>ul>li*5>a[href="#"]>{Enlace $} -->
+    <nav>
+        <ul>
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+            <li><a href="#">Enlace 5</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Ejemplo de HTML</h1>
+
+        <article id="html">
+            <h2>HTML</h2>
+
+            <section id="parrafos">
+                <h3>Párrafos</h3>
+
+                <p><strong>Lorem ipsum</strong> dolor sit amet consectetur.</p>
+
+                <p><em>Lorem ipsum</em> dolor sit amet consectetur, adipisicing elit. Quod error maxime nulla. Quos
+                    sequi illum
+                    eveniet deleniti, corporis dolorem unde iste laboriosam similique aliquam odit numquam voluptate
+                    assumenda alias nemo.</p>
+
+                <p>
+                    <span class="destacado">Lorem ipsum</span> dolor sit amet consectetur adipisicing.<br>
+                    <span class="destacado">Lorem ipsum</span> dolor sit amet consectetur.<br>
+                    <span class="destacado">Lorem ipsum</span> dolor sit amet consectetur, adipisicing elit.<br>
+                </p>
+
+                <pre>
+public class HolaMundo {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+    }
+}
+                </pre>
+            </section>
+            <section id="listas">
+                <h3>Listas</h3>
+
+                <ul>
+                    <li>Unordered</li>
+                    <li>List</li>
+                </ul>
+
+                <ol>
+                    <li>Ordered</li>
+                    <li>List
+                        <ol>
+                            <li>Sublista</li>
+                            <li>Ordenada</li>
+                        </ol>
+                    </li>
+                    <li>Otro elemento</li>
+                </ol>
+
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Hyper Text Markup Language</dd>
+
+                    <dt>CSS</dt>
+                    <dd>Cascade Style Sheets</dd>
+                </dl>
+            </section>
+            <section id="tablas">
+                <h3>Tablas</h3>
+
+                <table>
+                    <caption>Tabla de ejemplo</caption>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- tr*5>(th>{$})+(td>{Nombre $})+(td>{Apellido $}) -->
+                        <tr>
+                            <th>1</th>
+                            <td>Nombre 1</td>
+                            <td>Apellido 1</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Nombre 2</td>
+                            <td>Apellido 2</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Nombre 3</td>
+                            <td>Apellido 3</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Nombre 4</td>
+                            <td>Apellido 4</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>Nombre 5</td>
+                            <td>Apellido 5</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+            <section id="multimedia">
+                <h3>Multimedia</h3>
+
+                <figure>
+                    <img src="imgs/marte.jpg" alt="Imágen de Marte">
+                    <figcaption>Marte</figcaption>
+                </figure>
+
+                <audio src="audios/rock.mp3" controls></audio>
+
+                <video src="videos/bigbuckbunny.mp4" controls></video>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762082154642!2d-2.916172288838435!3d43.25640787788421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1687943234987!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0Wr0oT0aCD6w7O25TPwnoX?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZTwCtQIEswM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </section>
+        </article>
+    </main>
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="http://www.google.es">Google</a></li>
+                <li><a href="http://www.ipartek.es">Ipartek</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <footer>
+        <p>&copy;2023 Javier Lete</p>
+    </footer>
+</body>
+
+</html>
