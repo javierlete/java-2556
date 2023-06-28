@@ -8,3 +8,7 @@
 # Frontend
 * Previsualización de los ejemplos: https://javierlete.github.io/java-2556/Frontend/public/
 * Certificación FreeCodeCamp: https://www.freecodecamp.org/espanol/learn/2022/responsive-web-design/
+
+# Configuración de usuario e email en GIT
+* ```git config user.email "tu@email.net"```
+* ```git config user.name "Tu Nombre"```
