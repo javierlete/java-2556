@@ -136,11 +136,76 @@ public class HolaMundo {
 
                 <video src="videos/bigbuckbunny.mp4" controls></video>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762082154642!2d-2.916172288838435!3d43.25640787788421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1687943234987!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762082154642!2d-2.916172288838435!3d43.25640787788421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1687943234987!5m2!1ses!2ses"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0Wr0oT0aCD6w7O25TPwnoX?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/artist/0Wr0oT0aCD6w7O25TPwnoX?utm_source=generator&theme=0"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
 
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZTwCtQIEswM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZTwCtQIEswM"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </section>
+            <section id="formularios">
+                <h3>Formularios</h3>
+
+                <form action="https://www.google.es/search">
+                    <input type="search" name="q" placeholder="Buscar en Google">
+                    <button>Buscar</button>
+                </form>
+
+                <form>
+                    <fieldset>
+                        <legend>Datos de login</legend>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" required placeholder="Email que sueles utilizar">
+                        </div>
+                        <div>
+                            <label for="password">Contraseña</label>
+                            <input id="password" type="password" required placeholder="Que tenga una cierta complejidad">
+                        </div>
+                        <div>
+                            <button>Login</button>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Datos principales</legend>
+
+                        <input type="text" maxlength="20" placeholder="Nombre">
+                        <input type="url" placeholder="Tu página web">
+                        <input type="number" min="0" max="30" placeholder="¿Cuántos hijos tienes?">
+                        <input type="number" step=".01" min="0" placeholder="¿Qué presupuesto tienes?">
+                        <input type="checkbox">
+                        <input type="radio" name="opcion" value="1">
+                        <input type="radio" name="opcion" value="2">
+                        
+                        <select>
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                        </select>
+
+                        <select multiple>
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                        </select>
+
+                        <input type="date">
+                        <input type="time">
+                        <input type="datetime-local">
+
+                        <input type="tel" placeholder="Teléfono">
+                        <input type="color">
+                        <input type="range">
+
+                    </fieldset>
+                </form>
             </section>
         </article>
     </main>
@@ -149,11 +214,16 @@ public class HolaMundo {
             <ul>
                 <li><a href="http://www.google.es">Google</a></li>
                 <li><a href="http://www.ipartek.es">Ipartek</a></li>
+                <li><a href="https://www.freecodecamp.org">Free Code Camp</a></li>
             </ul>
         </nav>
     </aside>
     <footer>
         <p>&copy;2023 Javier Lete</p>
+        <p>Contacto: 
+            <a href="email:mi@email.net">mi@email.net</a>
+            <a href="tel:941231234">941231234</a>
+        </p>
     </footer>
 </body>
 
