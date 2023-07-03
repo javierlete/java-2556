@@ -193,7 +193,7 @@ fieldset {
     margin: var(--margen) 0;
 }
 
-fieldset * {
+fieldset *:not(legend) {
     width: 100%;
 }
 
@@ -219,7 +219,8 @@ fieldset * {
 .proporcion::after {
     display: block;
     content: "";
-    padding-top: 56.25%; /* 16:9 -> 9/16 */
+    padding-top: 56.25%;
+    /* 16:9 -> 9/16 */
 }
 
 .proporcion iframe {
@@ -231,9 +232,89 @@ fieldset * {
 }
 
 .proporcion.p4x3::after {
-    padding-top: 75%; /* 4:3 -> 3/4 */
+    padding-top: 75%;
+    /* 4:3 -> 3/4 */
 }
 
 .proporcion.p1x1::after {
-    padding-top: 100%; /* 1:1 -> 1/1 */
+    padding-top: 100%;
+    /* 1:1 -> 1/1 */
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        display: flex;
+    }
+
+    nav li {
+        margin: 0;
+    }
+
+    nav a {
+        padding: var(--margen);
+    }
+
+    nav a:hover {
+        color: var(--color-tinta);
+        background-color: var(--color-fondo);
+    }
+
+    footer {
+        display: flex;
+    }
+
+    footer p {
+        padding: var(--margen);
+        margin: 0;
+    }
+
+    article {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--margen);
+    }
+
+    h2 {
+        width: 100%;
+    }
+
+    #parrafos,
+    #listas {
+        width: calc(50% - var(--margen) / 2);
+    }
+
+    #tablas {
+        width: 100%
+    }
+
+    form:first-of-type {
+        display: flex;        
+    }
+
+    input[name=q] {
+        flex-grow: 1;
+    }
+
+    form:nth-of-type(2) div {
+        display: flex;
+        align-items: baseline;
+    }
+
+    form:nth-of-type(2) label {
+        width: 7rem;
+    }
+
+    #formularios fieldset:last-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--margen);
+    }
+
+    #formularios fieldset:last-of-type>*:not(legend) {
+        width: calc(50% - var(--margen) / 2);
+    }
+
+    #formularios fieldset:last-of-type>textarea {
+        width: 100%;
+    }
 }
