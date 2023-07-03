@@ -288,7 +288,7 @@ fieldset *:not(legend) {
     }
 
     form:first-of-type {
-        display: flex;        
+        display: flex;
     }
 
     input[name=q] {
@@ -316,5 +316,44 @@ fieldset *:not(legend) {
 
     #formularios fieldset:last-of-type>textarea {
         width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #multimedia {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--margen);
+    }
+
+    #multimedia>*:not(h3) {
+        width: calc(50% - var(--margen) / 2);
+    }
+
+    .proporcion::after {
+        padding-top: 56.25% !important;
+    }
+
+    #multimedia h3 {
+        width: 100%;
+        order: 1;
+    }
+
+    #multimedia audio {
+        width: 100%;
+        order: 2;
+    }
+
+    #multimedia figure {
+        order: 3;
+    }
+
+    #multimedia .proporcion:nth-of-type(2) {
+        order: 4;
+    }
+
+    #multimedia video, #multimedia .proporcion:not(:nth-of-type(2)) {
+        width: calc(33.3333% - var(--margen) / 1.5);
+        order: 5;
     }
 }
