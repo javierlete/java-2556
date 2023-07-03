@@ -65,39 +65,42 @@ dd {
     margin-left: calc(var(--margen) * 2);
 }
 
+/* Tabla usando CSS Nesting (¡NOVEDAD!) */
 table {
     width: 100%;
     border-collapse: collapse;
-}
 
-caption {
-    font-weight: bold;
-    text-transform: uppercase;
-}
+    & caption {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 
-caption,
-thead,
-tfoot {
-    background-color: var(--color-fondo-alternativo);
-}
+    & caption,
+    & thead,
+    & tfoot {
+        background-color: var(--color-fondo-alternativo);
+    }
 
-tr:nth-child(even) {
-    background-color: var(--color-fondo-alternativo-2)
-}
+    & caption,
+    & th,
+    & td {
+        border: 1px solid var(--color-linea);
+        padding: var(--margen);
+    }
 
-tr th:first-of-type {
-    text-align: right;
-}
+    & tr {
+        &:nth-of-type(even) {
+            background-color: var(--color-fondo-alternativo-2)
+        }
 
-tr th:not(:first-of-type) {
-    text-align: left;
-}
+        & th:first-of-type {
+            text-align: right;
+        }
 
-caption,
-th,
-td {
-    border: 1px solid var(--color-linea);
-    padding: var(--margen);
+        & th:not(:first-of-type) {
+            text-align: left;
+        }
+    }
 }
 
 strong {
@@ -115,7 +118,8 @@ a {
 }
 
 nav,
-h1, footer {
+h1,
+footer {
     background-color: var(--color-tinta);
     color: var(--color-fondo);
     text-align: center;
@@ -132,7 +136,8 @@ nav li {
     margin: var(--margen);
 }
 
-nav a, footer a {
+nav a,
+footer a {
     color: var(--color-fondo);
 }
 
@@ -161,7 +166,8 @@ h3 {
     padding: var(--margen);
 }
 
-#multimedia>*:not(h3), img {
+#multimedia>*:not(h3),
+img {
     width: 100%;
     margin: var(--margen) 0;
 }
@@ -176,7 +182,11 @@ iframe {
     border: 1px solid var(--color-linea);
 }
 
-input, button, select, textarea, fieldset {
+input,
+button,
+select,
+textarea,
+fieldset {
     border-radius: var(--margen);
     border: 1px solid var(--color-linea);
     padding: var(--margen);
