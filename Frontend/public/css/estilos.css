@@ -261,6 +261,12 @@ button, h3, h1, #arriba, img, audio, video, .proporcion, table, pre {
 /* RESPONSIVE */
 
 @media (min-width: 768px) {
+    body>nav {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
     nav ul {
         display: flex;
     }
