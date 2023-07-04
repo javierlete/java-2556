@@ -1,3 +1,5 @@
+/* VARIABLES */
+
 :root {
     --color-tinta: rgb(22, 22, 22);
     --color-fondo: rgb(233, 233, 233);
@@ -6,7 +8,10 @@
     --color-enlace: rgb(39, 107, 183);
     --color-linea: rgb(200, 200, 200);
     --margen: 0.5rem;
+    --sombra: var(--margen) var(--margen) calc(var(--margen) * 3) black;
 }
+
+/* GENERALES */
 
 * {
     box-sizing: border-box;
@@ -166,6 +171,8 @@ h3 {
     padding: var(--margen);
 }
 
+/* MULTIMEDIA */
+
 #multimedia>*:not(h3),
 img {
     width: 100%;
@@ -182,6 +189,8 @@ iframe {
     border: 1px solid var(--color-linea);
 }
 
+/* FORMULARIOS */
+
 input,
 button,
 select,
@@ -196,6 +205,8 @@ fieldset {
 fieldset *:not(legend) {
     width: 100%;
 }
+
+/* FLOTANTE */
 
 #arriba {
     position: fixed;
@@ -241,6 +252,14 @@ fieldset *:not(legend) {
     /* 1:1 -> 1/1 */
 }
 
+/* EFECTOS */
+
+button, h3, h1, #arriba, img, audio, video, .proporcion, table, pre {
+    box-shadow: var(--sombra);
+}
+
+/* RESPONSIVE */
+
 @media (min-width: 768px) {
     nav ul {
         display: flex;
@@ -248,6 +267,10 @@ fieldset *:not(legend) {
 
     nav li {
         margin: 0;
+    }
+
+    nav li:last-of-type {
+        margin-left: auto;
     }
 
     nav a {
@@ -320,10 +343,17 @@ fieldset *:not(legend) {
 }
 
 @media (min-width: 1024px) {
+    #arriba {
+        display: none;
+    }
+
     #multimedia {
         display: flex;
         flex-wrap: wrap;
         gap: var(--margen);
+        flex-direction: row;
+        align-items: flex-start;
+        align-content: flex-start;
     }
 
     #multimedia>*:not(h3) {
@@ -352,8 +382,179 @@ fieldset *:not(legend) {
         order: 4;
     }
 
-    #multimedia video, #multimedia .proporcion:not(:nth-of-type(2)) {
+    #multimedia video,
+    #multimedia .proporcion:not(:nth-of-type(2)) {
         width: calc(33.3333% - var(--margen) / 1.5);
         order: 5;
+    }
+}
+
+@media (min-width: 1440px) {
+    article#html {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        /* grid-template-rows: repeat(3, auto); */
+
+        justify-items: stretch;
+    }
+
+    article#html>* {
+        width: 100%;
+    }
+
+    h2 {
+        grid-column-end: span 6;
+    }
+
+    #parrafos {
+        grid-column-end: span 2;
+    }
+
+    #listas {
+        grid-column-end: span 1;
+    }
+
+    #tablas {
+        grid-column-end: span 3;
+    }
+
+    #multimedia,
+    #formularios {
+        grid-column-end: span 3;
+    }
+}
+
+@media (min-width: 2560px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr auto;
+
+        grid-template-areas:
+            "menu menu"
+            "principal anuncios"
+            "pie pie"
+    }
+
+    aside nav {
+        height: 100%;
+    }
+    aside ul {
+        flex-direction: column;
+    }
+
+    body>nav {
+        grid-area: menu;
+    }
+    
+    main {
+        grid-area: principal;
+    }
+
+    aside {
+        grid-area: anuncios;
+    }
+
+    footer {
+        grid-area: pie;
+    }
+    
+    h2 {
+        grid-area: titulo;
+    }
+
+    #parrafos {
+        grid-area: parrafos;
+    }
+
+    #listas {
+        grid-area: listas;
+    }
+
+    #tablas {
+        grid-area: tablas;
+    }
+
+    #multimedia {
+        grid-area: multimedia;
+    }
+
+    #formularios {
+        grid-area: formularios;
+    }
+
+    article#html {
+        grid-template-areas:
+            "titulo titulo titulo titulo titulo titulo"
+            "parrafos listas multimedia multimedia formularios formularios"
+            "tablas tablas multimedia multimedia formularios formularios"
+            ". . multimedia multimedia formularios formularios"
+    }
+
+    #multimedia {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas:
+            "m-titulo m-titulo"
+            "audio audio"
+            "foto maps"
+            "video youtube"
+            "spotify spotify"
+    }
+
+    #multimedia>* {
+        width: 100% !important;
+    }
+
+    #multimedia h3 {
+        grid-area: m-titulo;
+    }
+
+    #multimedia figure {
+        grid-area: foto;
+    }
+
+    #multimedia audio {
+        grid-area: audio;
+    }
+
+    #multimedia video {
+        grid-area: video;
+    }
+
+    #multimedia .proporcion:nth-of-type(1) {
+        grid-area: maps;
+    }
+
+    #multimedia .proporcion:nth-of-type(2) {
+        grid-area: spotify;
+    }
+
+    #multimedia .proporcion:nth-of-type(3) {
+        grid-area: youtube;
+    }
+
+
+}
+
+@media (min-width: 4320px) {
+    article#html {
+        grid-template-areas:
+            "titulo titulo titulo titulo titulo titulo"
+            "parrafos multimedia multimedia multimedia multimedia formularios"
+            "listas multimedia multimedia multimedia multimedia formularios"
+            "tablas multimedia multimedia multimedia multimedia formularios"
+            ". multimedia multimedia multimedia multimedia formularios"
+    }
+}
+
+@media print {
+    body>nav, audio, video, .proporcion:not(:first-of-type), #formularios, #arriba {
+        display: none;
+    }
+
+    h1, aside a, footer, footer a {
+        color: black;
     }
 }
