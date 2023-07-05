@@ -7,9 +7,12 @@
 
 # Frontend
 * Previsualización de los ejemplos: https://javierlete.github.io/java-2556/Frontend/public/
+* Can I Use: https://caniuse.com/
 * Certificación FreeCodeCamp: https://www.freecodecamp.org/espanol/learn/2022/responsive-web-design/
 * FlexBox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 * Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
+* Fonts de Google: https://fonts.google.com/
+* FontAwesome: https://fontawesome.com/
 
 # Juegos CSS
 * CSS Dinner: https://flukeout.github.io/
