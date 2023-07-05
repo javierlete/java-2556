@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo de HTML</title>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/estilos.css">
@@ -244,6 +245,17 @@ public class HolaMundo {
             <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
         </p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        let table = new DataTable('table', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/es-ES.json',
+            },
+        });
+    </script>
 </body>
 
 </html>
