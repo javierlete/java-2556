@@ -1,13 +1,23 @@
+/* TIPOS DE LETRA */
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=JetBrains+Mono&family=Public+Sans:wght@300&display=swap');
+
 /* VARIABLES */
 
 :root {
+    --tipo-letra-principal: 'Public Sans', sans-serif;
+    --tipo-letra-titulos: 'Bungee Spice', cursive;
+    --tipo-letra-codigo: 'JetBrains Mono', monospace;
+
     --color-tinta: rgb(22, 22, 22);
     --color-fondo: rgb(233, 233, 233);
     --color-fondo-alternativo: rgb(193, 193, 193);
     --color-fondo-alternativo-2: rgb(217, 217, 217);
     --color-enlace: rgb(39, 107, 183);
     --color-linea: rgb(200, 200, 200);
+    
     --margen: 0.5rem;
+    
     --sombra: var(--margen) var(--margen) calc(var(--margen) * 3) black;
 }
 
@@ -35,14 +45,22 @@ iframe {
 body {
     margin: 0;
 
-    font-family: sans-serif;
+    font-family: var(--tipo-letra-principal);
     color: var(--color-tinta);
     background-color: var(--color-fondo);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--tipo-letra-titulos)
 }
 
 p {
     line-height: calc(1rem + var(--margen));
     margin: calc(1rem + var(--margen) * 2) 0;
+}
+
+pre, code {
+    font-family: var(--tipo-letra-codigo);
 }
 
 pre {
