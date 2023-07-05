@@ -224,19 +224,40 @@ fieldset *:not(legend) {
     width: 100%;
 }
 
+/* REDES SOCIALES */
+
+#redes-sociales {
+    display: flex;
+    gap: var(--margen);
+
+    justify-content: space-around;
+}
+
+#redes-sociales li {
+    list-style: none;
+}
+
 /* FLOTANTE */
 
 #arriba {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     position: fixed;
     bottom: 1rem;
     right: 1rem;
 
     margin: 0;
     padding: 0;
-
+    
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: var(--margen);
+    border-radius: 2rem;
     padding: var(--margen);
+    
+    width: 2rem;
+    height: 2rem;
 }
 
 .proporcion {
@@ -308,9 +329,11 @@ button, h3, h1, #arriba, img, audio, video, .proporcion, table, pre {
 
     footer {
         display: flex;
+        align-items: baseline;
+        justify-content: space-between;
     }
 
-    footer p {
+    footer p, footer ul {
         padding: var(--margen);
         margin: 0;
     }
