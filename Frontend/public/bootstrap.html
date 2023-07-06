@@ -30,14 +30,14 @@
             </div>
         </div>
     </nav>
-    
+
     <main class="container">
         <h1 class="display-1 text-uppercase p-2 text-center rounded text-bg-dark shadow">Ejemplo de HTML</h1>
 
-        <article id="html">
+        <article class="row" id="html">
             <h2 class="text-center text-uppercase border-bottom">HTML</h2>
 
-            <section id="parrafos">
+            <section class="col-md-8" id="parrafos">
                 <h3 class="mb-3 text-center text-uppercase p-2 rounded bg-secondary-subtle shadow">Párrafos</h3>
 
                 <p><strong>Lorem ipsum</strong> dolor sit amet consectetur.</p>
@@ -61,7 +61,7 @@
     }
                     </pre>
             </section>
-            <section id="listas">
+            <section class="col-md-4" id="listas">
                 <h3 class="mb-3 text-center text-uppercase p-2 rounded bg-secondary-subtle shadow">Listas</h3>
 
                 <ul>
@@ -140,32 +140,35 @@
             <section id="multimedia">
                 <h3 class="mb-3 text-center text-uppercase p-2 rounded bg-secondary-subtle shadow">Multimedia</h3>
 
-                <figure class="figure mb-5">
-                    <img class="figure-img img-fluid rounded-3 shadow" src="imgs/marte.jpg" alt="Imágen de Marte">
-                    <figcaption class="figure-caption text-end">Marte</figcaption>
-                </figure>
+                <div class="row">
+                    <figure class="order-lg-1 col-lg-6 figure mb-5">
+                        <img class="figure-img img-fluid rounded-3 shadow" src="imgs/marte.jpg" alt="Imágen de Marte">
+                        <figcaption class="figure-caption text-end">Marte</figcaption>
+                    </figure>
 
-                <audio class="w-100 shadow mb-5 rounded-5 bg-white" src="audios/rock.mp3" controls></audio>
+                    <audio class="w-100 order-lg-first shadow mb-5 rounded-5 bg-white" src="audios/rock.mp3"
+                        controls></audio>
 
-                <video class="img-fluid rounded-3 shadow mb-5" src="videos/bigbuckbunny.mp4" controls></video>
+                    <video class="order-lg-3 col-12 col-lg-4 rounded-3 shadow mb-5" src="videos/bigbuckbunny.mp4" controls></video>
 
-                <div class="ratio ratio-4x3 mb-5">
-                    <iframe class="rounded-3 shadow"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762082154642!2d-2.916172288838435!3d43.25640787788421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1687943234987!5m2!1ses!2ses"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="ratio ratio-1x1 mb-5">
-                    <iframe class="rounded-3 shadow"
-                        src="https://open.spotify.com/embed/artist/0Wr0oT0aCD6w7O25TPwnoX?utm_source=generator&theme=0"
-                        allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="ratio ratio-16x9 mb-5">
-                    <iframe class="rounded-3 shadow" src="https://www.youtube-nocookie.com/embed/ZTwCtQIEswM"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <div class="order-lg-2 col-lg-6 position-relative mb-5">
+                        <iframe class="w-100 h-100 rounded-3 shadow"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762082154642!2d-2.916172288838435!3d43.25640787788421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1687943234987!5m2!1ses!2ses"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="order-lg-4 col-lg-4 position-relative ratio-1x1 mb-5">
+                        <iframe class="w-100 h-100 rounded-3 shadow"
+                            src="https://open.spotify.com/embed/artist/0Wr0oT0aCD6w7O25TPwnoX?utm_source=generator&theme=0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
+                    <div class="order-lg-5 col-lg-4 position-relative ratio-16x9 mb-5">
+                        <iframe class="w-100 h-100 rounded-3 shadow" src="https://www.youtube-nocookie.com/embed/ZTwCtQIEswM"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
                 </div>
             </section>
             <section id="formularios">
@@ -193,40 +196,42 @@
                             <button class="btn btn-primary mb-2">Login</button>
                         </div>
                     </fieldset>
-                    <fieldset class="d-flex flex-wrap">
+                    <fieldset class="row">
                         <legend>Datos principales</legend>
 
-                        <input class="form-control mb-2" type="text" maxlength="20" placeholder="Nombre">
-                        <input class="form-control mb-2" type="url" placeholder="Tu página web">
-                        <input class="form-control mb-2" type="number" min="0" max="30"
-                            placeholder="¿Cuántos hijos tienes?">
-                        <input class="form-control mb-2" type="number" step=".01" min="0"
-                            placeholder="¿Qué presupuesto tienes?">
-                        <div class="d-flex justify-content-around">
-                            <input class="form-check mb-2" type="checkbox">
-                            <input class="form-check mb-2" type="radio" name="opcion" value="1">
-                            <input class="form-check mb-2" type="radio" name="opcion" value="2">
+                        <div class="col-md-6">
+                            <input class="form-control mb-2" type="text" maxlength="20" placeholder="Nombre">
+                            <input class="form-control mb-2" type="url" placeholder="Tu página web">
+                            <input class="form-control mb-2" type="number" min="0" max="30"
+                                placeholder="¿Cuántos hijos tienes?">
+                            <input class="form-control mb-2" type="number" step=".01" min="0"
+                                placeholder="¿Qué presupuesto tienes?">
+                            <div class="d-flex justify-content-around">
+                                <input class="form-check mb-2" type="checkbox">
+                                <input class="form-check mb-2" type="radio" name="opcion" value="1">
+                                <input class="form-check mb-2" type="radio" name="opcion" value="2">
+                            </div>
+                            <select class="form-select mb-2">
+                                <option value="1">Uno</option>
+                                <option value="2">Dos</option>
+                            </select>
+
+                            <select class="form-select mb-2" multiple>
+                                <option value="1">Uno</option>
+                                <option value="2">Dos</option>
+                            </select>
                         </div>
-                        <select class="form-select mb-2">
-                            <option value="1">Uno</option>
-                            <option value="2">Dos</option>
-                        </select>
+                        <div class="col-md-6">
+                            <input class="form-control mb-2" type="date">
+                            <input class="form-control mb-2" type="time">
+                            <input class="form-control mb-2" type="datetime-local">
 
-                        <select class="form-select mb-2" multiple>
-                            <option value="1">Uno</option>
-                            <option value="2">Dos</option>
-                        </select>
+                            <input class="form-control mb-2" type="tel" placeholder="Teléfono">
+                            <input class="form-control mb-2" type="color">
+                            <input class="form-range mb-2" type="range">
 
-                        <input class="form-control mb-2" type="date">
-                        <input class="form-control mb-2" type="time">
-                        <input class="form-control mb-2" type="datetime-local">
-
-                        <input class="form-control mb-2" type="tel" placeholder="Teléfono">
-                        <input class="form-control mb-2" type="color">
-                        <input class="form-range mb-2" type="range">
-
-                        <textarea class="form-control mb-2" name="" id="" cols="30" rows="10"></textarea>
-
+                            <textarea class="form-control mb-2" name="" id="" cols="30" rows="10"></textarea>
+                        </div>
                     </fieldset>
                 </form>
             </section>
@@ -234,7 +239,7 @@
     </main>
     <aside>
         <nav>
-            <ul class="nav flex-column text-bg-dark text-center">
+            <ul class="nav flex-column flex-sm-row text-bg-dark text-center">
                 <li class="nav-item"><a class="text-white fw-bold nav-link" href="http://www.google.es">Google</a></li>
                 <li class="nav-item"><a class="text-white fw-bold nav-link" href="http://www.ipartek.es">Ipartek</a>
                 </li>
@@ -243,20 +248,20 @@
             </ul>
         </nav>
     </aside>
-    <footer class="text-bg-dark p-2 text-center">
+    <footer class="d-flex flex-column flex-sm-row justify-content-between text-bg-dark p-3 text-center">
         <p>&copy;2023 Javier Lete</p>
         <p>Contacto:
             <a class="text-white fw-bold" href="email:mi@email.net">mi@email.net</a>
             <a class="text-white fw-bold" href="tel:941231234">941231234</a>
         </p>
-        <ul class="list-unstyled d-flex justify-content-around" id="redes-sociales">
-            <li><a class="text-white" href="#"><i class="bi bi-facebook"></i></a></li>
-            <li><a class="text-white" href="#"><i class="bi bi-twitter"></i></a></li>
-            <li><a class="text-white" href="#"><i class="bi bi-instagram"></i></a></li>
-            <li><a class="text-white" href="#"><i class="bi bi-youtube"></i></a></li>
-            <li><a class="text-white" href="#"><i class="bi bi-tiktok"></i></a></li>
+        <ul class="list-unstyled d-flex justify-content-around justify-content-sm-between id=" redes-sociales">
+            <li><a class="text-white" href="#"><i class="ms-2 bi bi-facebook"></i></a></li>
+            <li><a class="text-white" href="#"><i class="ms-2 bi bi-twitter"></i></a></li>
+            <li><a class="text-white" href="#"><i class="ms-2 bi bi-instagram"></i></a></li>
+            <li><a class="text-white" href="#"><i class="ms-2 bi bi-youtube"></i></a></li>
+            <li><a class="text-white" href="#"><i class="ms-2 bi bi-tiktok"></i></a></li>
         </ul>
-        <p class="position-fixed bottom-0 end-0 text-bg-dark rounded-circle py-1 px-2 fs-3 me-2 mb-3 shadow"
+        <p class="position-fixed bottom-0 end-0 text-bg-dark rounded-circle py-1 px-2 fs-3 me-5 mb-5 shadow"
             id="arriba">
             <a href="#"><i class="bi bi-arrow-up text-white"></i></a>
         </p>
