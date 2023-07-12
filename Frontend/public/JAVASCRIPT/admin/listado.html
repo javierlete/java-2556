@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado</title>
+    <script src="js/listado.js"></script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>OPCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="javascript:anadir()">Añadir</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <form action="javascript:guardar()">
+        <input type="number" readonly id="id" placeholder="Id">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="number" step=".01" id="precio" placeholder="Precio">
+        <button>Guardar</button>
+    </form>
+</body>
+
+</html>
