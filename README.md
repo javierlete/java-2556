@@ -4,6 +4,7 @@
 * Libro de Java: https://www.upv.es/sma/java/manuales/Aprenda%20Java.pdf
 * Ejercicios básicos: http://puntocomnoesunlenguaje.blogspot.com/p/ejercicios.html
 * Ejercicios de orientación a objetos: https://puntocomnoesunlenguaje.blogspot.com/p/blog-page.html
+* Libro de Servlets: http://tutoriales.altervista.org/viewer/web/viewer.html?file=http%3A%2F%2Ftutoriales.altervista.org%2Ftrabajos%2Fservlets.pdf
 
 # Frontend
 * Previsualización de los ejemplos: https://javierlete.github.io/java-2556/Frontend/public/
