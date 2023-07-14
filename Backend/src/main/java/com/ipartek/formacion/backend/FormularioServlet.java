@@ -2,6 +2,10 @@ package com.ipartek.formacion.backend;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import com.ipartek.formacion.modelos.Producto;
@@ -27,6 +31,29 @@ public class FormularioServlet extends HttpServlet {
 		
 		Producto producto = new Producto(null, nombre, precio, caducidad);
 		
-		response.getWriter().println(producto);
+		final String RUTA = getServletContext().getRealPath("/WEB-INF/sql/bases.db");
+		final String URL = "jdbc:sqlite:" + RUTA;
+		final String SQL_INSERT = "INSERT INTO productos (nombre, precio, caducidad) VALUES (?,?,?)";
+		
+		try {
+			Class.forName("org.sqlite.JDBC");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		try (Connection con = DriverManager.getConnection(URL);
+				PreparedStatement pst = con.prepareStatement(SQL_INSERT);) {
+
+			pst.setString(1, producto.getNombre());
+			pst.setBigDecimal(2, producto.getPrecio());
+			pst.setString(3, producto.getCaducidad().toString());
+			
+			pst.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		response.sendRedirect("listado");		
 	}
 }
