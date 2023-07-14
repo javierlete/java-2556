@@ -1,7 +1,11 @@
 package com.ipartek.formacion.backend;
 
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +24,29 @@ public class ListadoServlet extends HttpServlet {
        
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Producto> productos = new ArrayList<>();
+		final String RUTA = getServletContext().getRealPath("/WEB-INF/sql/bases.db");
+		final String URL = "jdbc:sqlite:" + RUTA;
+		final String SQL_SELECT = "SELECT * FROM productos";
 		
-		productos.add(new Producto(1L, "Producto1", new BigDecimal("123.12"), LocalDate.of(2024,  2, 3)));
-		productos.add(new Producto(2L, "Producto2", new BigDecimal("223.12"), LocalDate.of(2024,  12, 13)));
+		List<Producto> productos = new ArrayList<>();
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		try (Connection con = DriverManager.getConnection(URL);
+				PreparedStatement pst = con.prepareStatement(SQL_SELECT);
+				ResultSet rs = pst.executeQuery()) {
+
+			while (rs.next()) {
+				productos.add(new Producto(rs.getLong("id"), rs.getString("nombre"), rs.getBigDecimal("precio"), LocalDate.parse(rs.getString("caducidad"))));
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		request.setAttribute("productos", productos);
 		
