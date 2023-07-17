@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
+<fmt:setLocale value="es-ES"></fmt:setLocale>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Tienda</title>
+<base href="${pageContext.request.contextPath}/">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
@@ -19,8 +22,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link" href="index">Principal</a></li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="admin/index">Administración</a></li>
 				</ul>
 			</div>
 		</div>
