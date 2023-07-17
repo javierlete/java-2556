@@ -5,6 +5,7 @@ Object o = request.getAttribute("productos");
 
 System.out.println(o);
 
+@SuppressWarnings("unchecked")
 List<Producto> productos = (List<Producto>)o;
 %>
 <!DOCTYPE html>
