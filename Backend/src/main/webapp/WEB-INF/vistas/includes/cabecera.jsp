@@ -10,6 +10,7 @@
 <title>Tienda</title>
 <base href="${pageContext.request.contextPath}/">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-icons.min.css">
 </head>
 <body>
 	<nav
