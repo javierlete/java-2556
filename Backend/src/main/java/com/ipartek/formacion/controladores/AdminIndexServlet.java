@@ -2,7 +2,6 @@ package com.ipartek.formacion.controladores;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,20 +23,10 @@ public class AdminIndexServlet extends HttpServlet {
        
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		final String RUTA = getServletContext().getRealPath("/WEB-INF/sql/bases.db");
-		final String URL = "jdbc:sqlite:" + RUTA;
-		final String SQL_SELECT = "SELECT * FROM productos";
-		
 		List<Producto> productos = new ArrayList<>();
 
-		try {
-			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		try (Connection con = DriverManager.getConnection(URL);
-				PreparedStatement pst = con.prepareStatement(SQL_SELECT);
+		try (Connection con = new DBHelper(getServletContext()).getConexion();
+				PreparedStatement pst = con.prepareStatement(DBHelper.SQL_SELECT);
 				ResultSet rs = pst.executeQuery()) {
 
 			while (rs.next()) {
