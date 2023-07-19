@@ -7,18 +7,21 @@ import java.sql.SQLException;
 import jakarta.servlet.ServletContext;
 
 public class DBHelper {
-	static final String SQL_SELECT = "SELECT * FROM productos";
-	static final String SQL_SELECT_ID = "SELECT * FROM productos WHERE id=?";
-	static final String SQL_INSERT = "INSERT INTO productos (nombre, precio, caducidad) VALUES (?,?,?)";
-	static final String SQL_UPDATE = "UPDATE productos SET nombre=?,precio=?,caducidad=? WHERE id=?";
-	static final String SQL_DELETE = "DELETE FROM productos WHERE id=?";
+	public static final String SQL_SELECT = "SELECT * FROM productos";
+	public static final String SQL_SELECT_ID = "SELECT * FROM productos WHERE id=?";
+	public static final String SQL_INSERT = "INSERT INTO productos (nombre, precio, caducidad) VALUES (?,?,?)";
+	public static final String SQL_UPDATE = "UPDATE productos SET nombre=?,precio=?,caducidad=? WHERE id=?";
+	public static final String SQL_DELETE = "DELETE FROM productos WHERE id=?";
 	
-	private final String RUTA;
 	private final String URL;
 	
-	public DBHelper(ServletContext context) {
-		RUTA = context.getRealPath("/WEB-INF/sql/bases.db");
-		URL = "jdbc:sqlite:" + RUTA;
+	DBHelper(ServletContext context) {
+		String ruta = context.getRealPath("/WEB-INF/sql/bases.db");
+		URL = "jdbc:sqlite:" + ruta;
+	}
+	
+	public DBHelper(String ruta) {
+		URL = "jdbc:sqlite:" + ruta;
 	}
 	
 	static {
@@ -29,7 +32,7 @@ public class DBHelper {
 		}
 	}
 	
-	Connection getConexion() {
+	public Connection getConexion() {
 		try {
 			return DriverManager.getConnection(URL);
 		} catch (SQLException e) {
