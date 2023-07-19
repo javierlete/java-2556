@@ -35,15 +35,21 @@ public class ProductosApi {
 
 	@GET
 	@Path("{id}")
-	public Producto getId(@PathParam("id") Long id) {
-		return obtenerPorId(id);
+	public Response getId(@PathParam("id") Long id) {
+		Producto producto = obtenerPorId(id);
+		
+		if(producto == null) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		} else {
+			return Response.ok(producto).build();
+		}
 	}
 
 	@POST
-	public Producto post(Producto producto) {
+	public Response post(Producto producto) {
 		insertar(producto);
 
-		return producto;
+		return Response.ok(producto).status(Response.Status.CREATED).build();
 	}
 
 	@PUT
