@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class RestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule())
+	private static final ObjectMapper MAPPER = new ObjectMapper().registerModule(new JavaTimeModule())
 			.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
 	@Override
@@ -34,7 +34,7 @@ public class RestServlet extends HttpServlet {
 
 		if (id == null) {
 			List<Producto> productos = obtenerTodos();
-			mapper.writeValue(response.getWriter(), productos);
+			MAPPER.writeValue(response.getWriter(), productos);
 		} else {
 			Producto producto = obtenerPorId(id);
 			
@@ -43,20 +43,20 @@ public class RestServlet extends HttpServlet {
 				return;
 			}
 			
-			mapper.writeValue(response.getWriter(), producto);
+			MAPPER.writeValue(response.getWriter(), producto);
 		}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Producto producto = mapper.readValue(request.getReader(), Producto.class);
+		Producto producto = MAPPER.readValue(request.getReader(), Producto.class);
 		
 		insertar(producto);
 		
 		response.setStatus(HttpServletResponse.SC_CREATED);
 		
-		mapper.writeValue(response.getWriter(), producto);
+		MAPPER.writeValue(response.getWriter(), producto);
 	}
 
 	@Override
@@ -64,11 +64,11 @@ public class RestServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// Long id = extraerId(request);
 		
-		Producto producto = mapper.readValue(request.getReader(), Producto.class);
+		Producto producto = MAPPER.readValue(request.getReader(), Producto.class);
 		
 		modificar(producto);
 		
-		mapper.writeValue(response.getWriter(), producto);
+		MAPPER.writeValue(response.getWriter(), producto);
 	}
 	
 	@Override
