@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body > header a.btn:hover {
+	border-color: white;
+}
+
+body > nav:first-of-type a:hover {
+	border-color: white;
+	border: 1px solid white;
+	border-radius: 2px;
+}
+
+#opciones-blanco a:hover {
+	color: rgb(255, 193,7) !important;
+}
