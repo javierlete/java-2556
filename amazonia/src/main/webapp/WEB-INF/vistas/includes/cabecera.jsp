@@ -109,14 +109,48 @@
 			</ul>
 		</div>
 	</div>
-	<nav id="opciones-blanco" class="border-bottom">
-		<ul class="d-flex justify-content-around list-unstyled m-0 p-1">
-			<li><a class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold" href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
-			<li><a class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold" href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
-			<li><a class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold" href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
-			<li><a class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold" href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
-			<li><a class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold" href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
-			<li><a class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold" href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+	<nav class="opciones-claras border-bottom bg-secondary-subtle py-1">
+		<ul class="d-flex justify-content-left list-unstyled m-0">
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+		</ul>
+	</nav>
+	<nav class="opciones-claras border-bottom pt-3">
+		<ul class="d-flex justify-content-left list-unstyled m-0">
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
+			<li class="px-2"><a
+				class="text-dark link-underline-warning link-offset-3-hover link-underline-opacity-0 link-underline-opacity-100-hover fw-bold"
+				href="#">&nbsp;&nbsp;Opción&nbsp;&nbsp;</a></li>
 		</ul>
 	</nav>
 	<c:if test="${error != null}">
