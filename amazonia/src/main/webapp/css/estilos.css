@@ -13,3 +13,7 @@ body > nav:first-of-type a:hover {
 .opciones-claras a:hover {
 	color: rgb(255, 193,7) !important;
 }
+
+#paises, #pie-oscuro {
+	font-size: .75rem;
+}
