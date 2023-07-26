@@ -17,3 +17,10 @@ body > nav:first-of-type a:hover {
 #paises, #pie-oscuro {
 	font-size: .75rem;
 }
+
+.numero {
+	border-right: 1rem solid transparent;
+	border-top: 1rem solid rgb(255, 193,7);
+	position: relative;
+    bottom: -1rem;
+}
