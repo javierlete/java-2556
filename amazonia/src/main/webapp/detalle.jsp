@@ -9,7 +9,7 @@
 				<img src="https://picsum.photos/300/400" class="img-fluid" alt="">
 			</div>
 			<div class="col-8">
-				<header class="col-9 border-bottom border-2">
+				<header class="border-bottom border-2">
 					<h2>${articulo.descripcion}</h2>
 					<p class="my-1 opciones-claras">
 						<a class="link-underline link-underline-opacity-0" href="#"> <span
@@ -39,7 +39,7 @@
 
 	<div class="col">
 		<div class="card mb-3">
-			<form class="card-body">
+			<form class="card-body" action="cesta" method="post">
 				<p class="fs-3">
 					<fmt:formatNumber type="currency" value="${articulo.precio}"></fmt:formatNumber>
 				</p>
@@ -53,7 +53,7 @@
 					</select>
 				</p>
 				<p>
-					<a href="#" class="w-100 btn btn-warning rounded-pill">Añadir a la cesta</a>
+					<button class="w-100 btn btn-warning rounded-pill">Añadir a la cesta</button>
 				</p>
 				<p>
 					<a href="#" class="w-100 btn btn-warning rounded-pill">Comprar ya</a>
