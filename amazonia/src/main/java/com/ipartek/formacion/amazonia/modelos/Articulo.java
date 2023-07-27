@@ -10,7 +10,6 @@ public class Articulo {
 	private BigDecimal precio;
 	private Integer cantidad;
 
-	
 	public Articulo(Long id, String descripcion, Integer estrellas, BigDecimal precio, Integer cantidad) {
 		this.id = id;
 		this.descripcion = descripcion;
@@ -67,6 +66,10 @@ public class Articulo {
 		this.cantidad = cantidad;
 	}
 
+	public BigDecimal getTotal() {
+		return precio.multiply(new BigDecimal(cantidad));
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cantidad, descripcion, estrellas, id, precio);
