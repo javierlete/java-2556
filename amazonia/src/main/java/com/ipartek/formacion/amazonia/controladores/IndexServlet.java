@@ -1,4 +1,4 @@
-package com.ipartek.formacion.amazonia.modelos;
+package com.ipartek.formacion.amazonia.controladores;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import com.ipartek.formacion.amazonia.modelos.Articulo;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
