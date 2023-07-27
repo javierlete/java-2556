@@ -16,11 +16,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import static com.ipartek.formacion.amazonia.controladores.Globales.*;
+
 @WebServlet("/cesta")
 public class CestaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private static final String URL = "jdbc:sqlite:C:\\Users\\java\\git\\java-2556\\amazonia\\sql\\amazonia.db";
 
 	private static final String SQL_SELECT_ID = "SELECT * FROM articulos WHERE id = ?";
 
