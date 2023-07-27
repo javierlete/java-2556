@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.ipartek.formacion.amazonia.modelos.Articulo;
+import com.ipartek.formacion.amazonia.modelos.Cesta;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,6 +30,12 @@ public class CestaServlet extends HttpServlet {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.getRequestDispatcher("/cesta.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -54,8 +61,11 @@ public class CestaServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("articulo", articulo);
-		request.setAttribute("cantidad", cantidad);
-		request.getRequestDispatcher("/cesta.jsp").forward(request, response);
+		articulo.setCantidad(cantidad);
+		
+		Cesta cesta = (Cesta) request.getSession().getAttribute("cesta");
+		cesta.agregarArticulo(articulo);
+		
+		response.sendRedirect(request.getContextPath() + "/cesta");
 	}
 }
