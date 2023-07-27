@@ -8,13 +8,19 @@ public class Articulo {
 	private String descripcion;
 	private Integer estrellas;
 	private BigDecimal precio;
+	private Integer cantidad;
 
-	public Articulo(Long id, String descripcion, Integer estrellas, BigDecimal precio) {
-		super();
+	
+	public Articulo(Long id, String descripcion, Integer estrellas, BigDecimal precio, Integer cantidad) {
 		this.id = id;
 		this.descripcion = descripcion;
 		this.estrellas = estrellas;
 		this.precio = precio;
+		this.cantidad = cantidad;
+	}
+
+	public Articulo(Long id, String descripcion, Integer estrellas, BigDecimal precio) {
+		this(id, descripcion, estrellas, precio, null);
 	}
 
 	public Articulo() {
@@ -53,9 +59,17 @@ public class Articulo {
 		this.precio = precio;
 	}
 
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(descripcion, estrellas, id, precio);
+		return Objects.hash(cantidad, descripcion, estrellas, id, precio);
 	}
 
 	@Override
@@ -67,13 +81,14 @@ public class Articulo {
 		if (getClass() != obj.getClass())
 			return false;
 		Articulo other = (Articulo) obj;
-		return Objects.equals(descripcion, other.descripcion) && Objects.equals(estrellas, other.estrellas)
-				&& Objects.equals(id, other.id) && Objects.equals(precio, other.precio);
+		return Objects.equals(cantidad, other.cantidad) && Objects.equals(descripcion, other.descripcion)
+				&& Objects.equals(estrellas, other.estrellas) && Objects.equals(id, other.id)
+				&& Objects.equals(precio, other.precio);
 	}
 
 	@Override
 	public String toString() {
 		return "Articulo [id=" + id + ", descripcion=" + descripcion + ", estrellas=" + estrellas + ", precio=" + precio
-				+ "]";
+				+ ", cantidad=" + cantidad + "]";
 	}
 }
