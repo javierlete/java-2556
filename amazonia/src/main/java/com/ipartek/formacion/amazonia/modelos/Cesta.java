@@ -9,7 +9,7 @@ public class Cesta {
 	private List<Articulo> articulos = new ArrayList<>();
 
 	public void agregarArticulo(Articulo articulo) {
-		if(articulos.stream().anyMatch(a -> a.getId() == articulo.getId())) {
+		if (articulos.stream().anyMatch(a -> a.getId() == articulo.getId())) {
 			agregarCantidad(articulo.getId(), articulo.getCantidad());
 		} else {
 			articulos.add(articulo);
@@ -49,13 +49,13 @@ public class Cesta {
 		Optional<Articulo> articulo = articulos.stream().filter(a -> a.getId() == id).findFirst();
 
 		Articulo a = articulo.orElse(null);
-		
+
 		if (a != null) {
 			a.setCantidad(cantidad);
 		}
 	}
-	
+
 	public Integer getCantidadArticulos() {
-		return articulos.size();
+		return articulos.stream().map(a -> a.getCantidad()).reduce(0, (acumulado, cantidad) -> cantidad + acumulado);
 	}
 }
