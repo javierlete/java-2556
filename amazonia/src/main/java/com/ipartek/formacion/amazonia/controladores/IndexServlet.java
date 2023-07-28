@@ -1,8 +1,9 @@
 package com.ipartek.formacion.amazonia.controladores;
 
+import static com.ipartek.formacion.amazonia.controladores.DBHelper.getConexion;
+
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,27 +16,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import static com.ipartek.formacion.amazonia.controladores.Globales.*;
 
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static final String SQL_SELECT = "SELECT * FROM articulos";
-
-	static {
-		try {
-			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		var articulos = new ArrayList<Articulo>();
 
-		try (Connection con = DriverManager.getConnection(URL);
+		try (Connection con = getConexion();
 				PreparedStatement pst = con.prepareStatement(SQL_SELECT);
 				ResultSet rs = pst.executeQuery()) {
 			while(rs.next()) {
