@@ -26,6 +26,11 @@ public class CestaApi {
 	}
 	
 	@GET
+	public Cesta getCesta() {
+		return cesta;
+	}
+	
+	@GET
 	@Path("cantidad")
 	public Integer getCantidad() {
 		return cesta.getCantidadArticulos();
@@ -39,7 +44,8 @@ public class CestaApi {
 	
 	@PATCH
 	@Path("{id}")
-	public void actualizarCantidadArticulo(@PathParam("id") Long id, @QueryParam("cantidad") Integer cantidad) {
+	public Cesta actualizarCantidadArticulo(@PathParam("id") Long id, @QueryParam("cantidad") Integer cantidad) {
 		cesta.cambiarCantidad(id, cantidad);
+		return cesta;
 	}
 }

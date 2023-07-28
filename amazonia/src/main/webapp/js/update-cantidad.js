@@ -20,22 +20,16 @@ window.addEventListener('DOMContentLoaded', function() {
 		const id = +select.dataset.id;
 
 		// Llamamos a un servidor REST
-		// Actualización de la cantidad de un id 
-		const respuestaPatch = await fetch(`${URL}${id}?cantidad=${cantidad}`, { method: 'PATCH' });
+		// Actualización de la cantidad de un id y recepción de la cesta resultante
+		const respuesta = await fetch(`${URL}${id}?cantidad=${cantidad}`, { method: 'PATCH' });
 
 		// Si va mal interrumpimos el proceso y notificamos al usuario
-		if (!respuestaPatch.ok) {
+		if (!respuesta.ok) {
 			alert('Error');
 			return;
 		}
-		
-		// Pedimos los datos necesarios para pantalla
-		// Totales de cantidad y precio
-		const respuestaCantidad = await fetch(`${URL}cantidad`);
-		const cantidadTotal = await respuestaCantidad.json(); 
-		
-		const respuestaTotal = await fetch(`${URL}total`);
-		const total = await respuestaTotal.json();
+
+		const cesta = await respuesta.json();
 		
 		// Buscamos los elementos donde queremos hacer modificaciones en pantalla
 		// Los span de cantidad y total		
@@ -43,8 +37,8 @@ window.addEventListener('DOMContentLoaded', function() {
 		const totales = document.querySelectorAll('.precio-total');
 		
 		// Modificamos los elementos con los datos recibidos
-		cantidades.forEach(c => c.innerText = cantidadTotal);
-		totales.forEach(t => t.innerText = EURO.format(total));
+		cantidades.forEach(c => c.innerText = cesta.cantidadArticulos);
+		totales.forEach(t => t.innerText = EURO.format(cesta.total));
 		
 		const option = select.children[0];
 		
