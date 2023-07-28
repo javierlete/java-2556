@@ -20,8 +20,8 @@
 						<div style="--bs-breadcrumb-divider: '|';">
 							<ol class="breadcrumb d-flex align-items-baseline">
 								<li class="breadcrumb-item"><select id="cantidad"
-									name="cantidad" class="form-select bg-secondary-subtle"
-									style="width: 7rem">
+									name="cantidad" data-id="${a.id}"
+									class="form-select bg-secondary-subtle" style="width: 7rem">
 										<option value="${a.cantidad}">Cant: ${a.cantidad}</option>
 										<option>1</option>
 										<option>2</option>
@@ -35,7 +35,9 @@
 			</article>
 		</c:forEach>
 		<footer class="fs-5 text-end">
-			Subtotal (${cesta.cantidadArticulos} productos): <span class="fw-bold"><fmt:formatNumber type="currency" value="${cesta.total}"></fmt:formatNumber></span>
+			Subtotal (<span class="cantidad-total">${cesta.cantidadArticulos}</span>
+			productos): <span class="fw-bold precio-total"><fmt:formatNumber
+					type="currency" value="${cesta.total}"></fmt:formatNumber></span>
 		</footer>
 	</div>
 
@@ -43,7 +45,9 @@
 		<div class="card mb-3">
 			<form class="card-body">
 				<p class="fs-6">
-					Subtotal (${cesta.cantidadArticulos} productos): <span class="fw-bold"><span class="fw-bold"><fmt:formatNumber type="currency" value="${cesta.total}"></fmt:formatNumber></span></span>
+					Subtotal (<span class="cantidad-total">${cesta.cantidadArticulos}</span>
+					productos): <span class="fw-bold precio-total"><span class="fw-bold"><fmt:formatNumber
+								type="currency" value="${cesta.total}"></fmt:formatNumber></span></span>
 				</p>
 				<p>
 					<a href="#" class="w-100 btn btn-warning">Tramitar pedido</a>
@@ -52,4 +56,7 @@
 		</div>
 	</div>
 </div>
+
+<script src="js/update-cantidad.js"></script>
+
 <%@ include file="/WEB-INF/vistas/includes/pie.jsp"%>
