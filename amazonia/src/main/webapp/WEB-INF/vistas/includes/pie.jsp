@@ -23,7 +23,6 @@
 						class="link-light link-offset-0-hover link-underline-opacity-0 link-underline-opacity-100-hover">Vínculos</a></li>
 					<li><a href="#"
 						class="link-light link-offset-0-hover link-underline-opacity-0 link-underline-opacity-100-hover">Vínculos</a></li>
-					</li>
 				</ul>
 			</div>
 			<div>
@@ -177,7 +176,6 @@
 						class="link-secondary link-offset-0-hover link-underline-opacity-0 link-underline-opacity-100-hover">Vínculos</a></li>
 					<li><a href="#"
 						class="link-secondary link-offset-0-hover link-underline-opacity-0 link-underline-opacity-100-hover">Vínculos</a></li>
-					</li>
 				</ul>
 			</div>
 			<div class="col flex-grow-0">
@@ -261,7 +259,6 @@
 						class="link-secondary link-offset-0-hover link-underline-opacity-0 link-underline-opacity-100-hover">Vínculos</a></li>
 					<li><a href="#"
 						class="link-secondary link-offset-0-hover link-underline-opacity-0 link-underline-opacity-100-hover">Vínculos</a></li>
-					</li>
 				</ul>
 			</div>
 			<div class="col flex-grow-0">
