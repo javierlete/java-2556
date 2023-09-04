@@ -9,37 +9,24 @@
 			<i class="fs-3 bi bi-plus"></i>
 		</button>
 	</div>
+	
 	<ul class="list-unstyled">
-		<li>
-			<div class="input-group mb-3">
-				<div class="input-group-text">
-					<input class="fs-3 form-check-input mt-0" type="checkbox">
+		<c:forEach items="${tareas}" var="t">
+			<li>
+				<div class="input-group mb-3">
+					<div class="input-group-text">
+						<input class="fs-3 form-check-input mt-0" type="checkbox" ${t.terminada ? 'checked': ''}>
+					</div>
+					<input type="text" class="form-control ${t.terminada ? 'text-decoration-line-through': ''}" value="${t.texto}">
+					<button class="btn btn-outline-secondary" type="button">
+						<i class="fs-3 bi bi-pencil"></i>
+					</button>
+					<button class="btn btn-outline-danger" type="button">
+						<i class="fs-3 bi bi-trash"></i>
+					</button>
 				</div>
-				<input type="text" class="form-control"
-					value="Tarea 1">
-				<button class="btn btn-outline-secondary" type="button">
-					<i class="fs-3 bi bi-pencil"></i>
-				</button>
-				<button class="btn btn-outline-danger" type="button">
-					<i class="fs-3 bi bi-trash"></i>
-				</button>
-			</div>
-		</li>
-		<li>
-			<div class="input-group mb-3">
-				<div class="input-group-text">
-					<input class="fs-3 form-check-input mt-0" type="checkbox" checked>
-				</div>
-				<input type="text" class="form-control text-decoration-line-through"
-					value="Tarea 1">
-				<button class="btn btn-outline-secondary" type="button">
-					<i class="fs-3 bi bi-pencil"></i>
-				</button>
-				<button class="btn btn-outline-danger" type="button">
-					<i class="fs-3 bi bi-trash"></i>
-				</button>
-			</div>
-		</li>
+			</li>
+		</c:forEach>
 	</ul>
 
 </main>
