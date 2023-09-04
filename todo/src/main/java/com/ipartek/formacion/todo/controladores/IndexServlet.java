@@ -1,6 +1,10 @@
 package com.ipartek.formacion.todo.controladores;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +23,17 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Tarea> tareas = new ArrayList<>();
 		
-		tareas.add(new Tarea(1L, "Tarea 1", false));
-		tareas.add(new Tarea(2L, "Tarea 2", true));
-		tareas.add(new Tarea(3L, "Tarea 3", true));
+		DBHelper db = new DBHelper(getServletContext());
+		
+		try (Connection con = db.getConexion();
+				PreparedStatement pst = con.prepareStatement(DBHelper.SQL_SELECT);
+				ResultSet rs = pst.executeQuery()) {
+			while(rs.next()) {
+				tareas.add(new Tarea(rs.getLong("id"), rs.getString("texto"), rs.getBoolean("terminada")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		request.setAttribute("tareas", tareas);
 		
