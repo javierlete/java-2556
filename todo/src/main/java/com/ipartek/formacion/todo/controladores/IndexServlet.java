@@ -25,7 +25,7 @@ public class IndexServlet extends HttpServlet {
 		
 		request.setAttribute("tareas", tareas);
 		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/vistas/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
