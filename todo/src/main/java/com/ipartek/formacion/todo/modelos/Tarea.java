@@ -6,7 +6,10 @@ public class Tarea {
 	private Long id;
 	private String texto;
 	private boolean terminada;
-	
+
+	public Tarea() {
+	}
+
 	public Tarea(Long id, String texto, boolean terminada) {
 		super();
 		this.id = id;
@@ -59,6 +62,5 @@ public class Tarea {
 	public String toString() {
 		return "Tarea [id=" + id + ", texto=" + texto + ", terminada=" + terminada + "]";
 	}
-	
-	
+
 }

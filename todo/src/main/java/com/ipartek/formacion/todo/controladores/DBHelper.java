@@ -12,6 +12,7 @@ public class DBHelper {
 	private static final String RUTA_DB = "/WEB-INF/sql/todo.db";
 
 	public static final String SQL_SELECT = "SELECT * FROM tareas";
+	public static final String SQL_SELECT_ID = "SELECT * FROM tareas WHERE id=?";
 	public static final String SQL_INSERT = "INSERT INTO tareas (texto, terminada) VALUES (?,?)";
 	public static final String SQL_UPDATE = "UPDATE tareas SET texto=?, terminada=? WHERE id=?";
 	public static final String SQL_UPDATE_TERMINADO = "UPDATE tareas SET terminada=? WHERE id=?";
