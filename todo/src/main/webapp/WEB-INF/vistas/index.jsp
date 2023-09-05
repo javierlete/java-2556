@@ -13,18 +13,20 @@
 	<ul class="list-unstyled">
 		<c:forEach items="${tareas}" var="t">
 			<li>
-				<div class="input-group mb-3">
+				<form action="modificar-tarea" method="post" class="input-group mb-3">
+					<input type="hidden" name="id" value="${t.id}">
+					
 					<div class="input-group-text">
-						<input class="fs-3 form-check-input mt-0" type="checkbox" ${t.terminada ? 'checked': ''}>
+						<input name="terminada" class="fs-3 form-check-input mt-0" type="checkbox" ${t.terminada ? 'checked': ''}>
 					</div>
-					<input type="text" class="form-control ${t.terminada ? 'text-decoration-line-through': ''}" value="${t.texto}">
-					<button class="btn btn-outline-secondary" type="button">
+					<input type="text" name="texto" class="form-control ${t.terminada ? 'text-decoration-line-through': ''}" value="${t.texto}">
+					<button class="btn btn-outline-secondary">
 						<i class="fs-3 bi bi-pencil"></i>
 					</button>
 					<a href="borrar-tarea?id=${t.id}" class="btn btn-outline-danger">
 						<i class="fs-3 bi bi-trash"></i>
 					</a>
-				</div>
+				</form>
 			</li>
 		</c:forEach>
 	</ul>
