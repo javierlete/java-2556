@@ -13,6 +13,7 @@ public class DBHelper {
 
 	public static final String SQL_SELECT = "SELECT * FROM tareas";
 	public static final String SQL_INSERT = "INSERT INTO tareas (texto, terminada) VALUES (?,?)";
+	public static final String SQL_DELETE = "DELETE FROM tareas WHERE id=?";
 
 	private final String URL;
 	

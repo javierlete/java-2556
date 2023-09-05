@@ -21,9 +21,9 @@
 					<button class="btn btn-outline-secondary" type="button">
 						<i class="fs-3 bi bi-pencil"></i>
 					</button>
-					<button class="btn btn-outline-danger" type="button">
+					<a href="borrar-tarea?id=${t.id}" class="btn btn-outline-danger">
 						<i class="fs-3 bi bi-trash"></i>
-					</button>
+					</a>
 				</div>
 			</li>
 		</c:forEach>
