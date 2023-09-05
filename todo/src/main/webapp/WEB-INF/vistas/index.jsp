@@ -32,4 +32,7 @@
 	</ul>
 
 </main>
+
+<script src="js/index.js"></script>
+
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
