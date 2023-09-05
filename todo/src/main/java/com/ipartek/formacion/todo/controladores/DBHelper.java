@@ -7,22 +7,26 @@ import java.sql.SQLException;
 import jakarta.servlet.ServletContext;
 
 public class DBHelper {
+	private static final String DRIVER = "org.sqlite.JDBC";
+	private static final String PREFIJO_JDBC = "jdbc:sqlite:";
+	private static final String RUTA_DB = "/WEB-INF/sql/todo.db";
+
 	public static final String SQL_SELECT = "SELECT * FROM tareas";
-	
+
 	private final String URL;
 	
 	DBHelper(ServletContext context) {
-		String ruta = context.getRealPath("/WEB-INF/sql/todo.db");
-		URL = "jdbc:sqlite:" + ruta;
+		String ruta = context.getRealPath(RUTA_DB);
+		URL = PREFIJO_JDBC + ruta;
 	}
 	
 	public DBHelper(String ruta) {
-		URL = "jdbc:sqlite:" + ruta;
+		URL = PREFIJO_JDBC + ruta;
 	}
 	
 	static {
 		try {
-			Class.forName("org.sqlite.JDBC");
+			Class.forName(DRIVER);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
