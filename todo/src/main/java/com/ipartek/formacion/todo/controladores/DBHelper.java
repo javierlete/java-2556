@@ -14,11 +14,12 @@ public class DBHelper {
 	public static final String SQL_SELECT = "SELECT * FROM tareas";
 	public static final String SQL_INSERT = "INSERT INTO tareas (texto, terminada) VALUES (?,?)";
 	public static final String SQL_UPDATE = "UPDATE tareas SET texto=?, terminada=? WHERE id=?";
+	public static final String SQL_UPDATE_TERMINADO = "UPDATE tareas SET terminada=? WHERE id=?";
 	public static final String SQL_DELETE = "DELETE FROM tareas WHERE id=?";
 
 	private final String URL;
 	
-	DBHelper(ServletContext context) {
+	public DBHelper(ServletContext context) {
 		String ruta = context.getRealPath(RUTA_DB);
 		URL = PREFIJO_JDBC + ruta;
 	}
