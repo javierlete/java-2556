@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/cabecera.jsp"%>
 <main class="my-3 container">
-	<div class="input-group mb-3">
-		<input type="text" class="form-control"
+	<form action="nueva-tarea" class="input-group mb-3" method="post">
+		<input type="text" class="form-control" name="texto"
 			placeholder="Introduce la nueva tarea que quieres añadir">
-		<button class="btn btn-primary" type="button">
+		<button class="btn btn-primary">
 			<i class="fs-3 bi bi-plus"></i>
 		</button>
-	</div>
+	</form>
 	
 	<ul class="list-unstyled">
 		<c:forEach items="${tareas}" var="t">

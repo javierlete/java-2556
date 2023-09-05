@@ -12,6 +12,7 @@ public class DBHelper {
 	private static final String RUTA_DB = "/WEB-INF/sql/todo.db";
 
 	public static final String SQL_SELECT = "SELECT * FROM tareas";
+	public static final String SQL_INSERT = "INSERT INTO tareas (texto, terminada) VALUES (?,?)";
 
 	private final String URL;
 	
