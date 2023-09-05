@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ToDo</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-icons.min.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">ToDo</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item"><a class="nav-link" href="index">Principal</a></li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="navbar-text">${usuario}</li>
+
+					<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main class="my-3 container">
+		<form class="input-group mb-3">
+			<input type="text" class="form-control" name="texto"
+				placeholder="Introduce la nueva tarea que quieres añadir">
+			<button type="button" id="btn-anadir" class="btn btn-primary">
+				<i class="fs-3 bi bi-plus"></i>
+			</button>
+		</form>
+
+		<ul class="list-unstyled">
+				
+		</ul>
+
+	</main>
+
+	<script src="js/rest.js"></script>
+
+	<footer class="text-bg-dark p-3"> &copy;2023 Javier Lete </footer>
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
